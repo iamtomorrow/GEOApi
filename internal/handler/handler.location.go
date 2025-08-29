@@ -9,12 +9,35 @@ import (
 
 func GetAllLocations(w http.ResponseWriter, r *http.Request) {
 
-	response := model.Location{
-		ID:          "1100809",
-		IDMunicipio: "1100809",
-		Name:        "Candeias do Jamari",
-		UF:          "Rondônia",
-		Centroide:   "POINT(-63.3254198532114 -8.88702392955617)",
+	response := []model.Location{
+		{
+			ID:          "1100809",
+			IDMunicipio: "1100809",
+			Name:        "Candeias do Jamari",
+			UF:          "Rondônia",
+			Centroide:   "POINT(-63.3254198532114 -8.88702392955617)",
+		},
+		{
+			ID:          "1600212",
+			IDMunicipio: "1600212",
+			Name:        "Cutias",
+			UF:          "Amapá",
+			Centroide:   "POINT(-50.4839927545885 1.03057297634923)",
+		},
+		{
+			ID:          "1100809",
+			IDMunicipio: "1100809",
+			Name:        "Candeias do Jamari",
+			UF:          "Rondônia",
+			Centroide:   "POINT(-63.3254198532114 -8.88702392955617)",
+		},
+		{
+			ID:          "1100809",
+			IDMunicipio: "1100809",
+			Name:        "Candeias do Jamari",
+			UF:          "Rondônia",
+			Centroide:   "POINT(-63.3254198532114 -8.88702392955617)",
+		},
 	}
 
 	w.Header().Set("Content-Type", "application/json")
