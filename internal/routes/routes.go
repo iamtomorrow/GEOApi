@@ -8,12 +8,19 @@ import (
 func SetupRoutes() *chi.Mux {
 	router := chi.NewRouter()
 
-	router.Get("/ping", handler.Ping)
-	router.Get("/test", handler.Test)
+	// testing
+	router.Get("/v1/ping", handler.Ping)
+	router.Get("/v1/test", handler.Test)
 
 	// locations
-	router.Get("/locations", handler.GetAllLocations)
-	router.Get("/location/{id}", handler.GetLocation)
+	router.Get("/v1/timezone/{lat}{lon}", handler.Handler)
+	router.Get("/v1/places/nearby/{lat}{lon}{radius}", handler.Handler)
+	router.Get("/v1/geocode/{address}", handler.Handler)
+	router.Get("/v1/address/{lat}{lon}", handler.Handler)
+	router.Get("/v1/distance/{fromLat}{fromLon}{toLat}{toLon}{unit}", handler.Handler)
+
+	router.Get("/v1/locations", handler.GetAllLocations)
+	router.Get("/v1/location/{id}", handler.GetLocation)
 
 	return router
 }
