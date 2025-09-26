@@ -3,6 +3,7 @@ package routes
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/iamtomorrow/GEOApi/internal/handler"
+	"github.com/iamtomorrow/GEOApi/internal/middleware"
 )
 
 func SetupRoutes() *chi.Mux {
@@ -11,6 +12,9 @@ func SetupRoutes() *chi.Mux {
 	// testing
 	router.Get("/v1/ping", handler.Ping)
 	router.Get("/v1/test", handler.Test)
+
+	// user
+	router.Get("/v1/signup", middleware.Authenticate)
 
 	// locations
 	router.Get("/v1/timezone/{lat}{lon}", handler.Handler)

@@ -5,3 +5,7 @@ type User struct {
 	Name    string
 	Country string
 }
+
+type Status struct {
+	Status string
+}
